@@ -3,4 +3,32 @@
     <img src="../../../../assets/icons/briefcase.png" alt="">
     Recent transactions
   </div>
+  <div class="content">
+    <div class="contentHeader">
+      <mat-form-field appearance="standard">
+        <mat-label>Search</mat-label>
+        <input [placeholder]="'Search By Typing...'" matInput>
+      </mat-form-field>
+      <div class="sortOptions">
+        <label>Sort by</label>
+        <span>DATE</span>
+        <span class="noSideBorder">BENEFICIARY</span>
+        <span>AMOUNT</span>
+      </div>
+    </div>
+    <div class="tableRow" *ngFor="let transaction of dataToShow">
+      <div class="indicator" [style]="{'background-color': transaction.color}"></div>
+      <div class="info">
+        <div class="date">{{transaction.date}}</div>
+        <div class="transactionData">
+          <img [src]="transaction.img" alt="img">
+          <div>
+            <Label>{{transaction.name}}</Label>
+            <span>{{transaction.type}}</span>
+          </div>
+        </div>
+        <div class="money">{{transaction.amount}}</div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -17,7 +17,8 @@
         "name": "Backbase",
         "accountNumber": "SI64397745065188826"
       }
-    }, {
+    },
+    {
       "categoryCode": "#12a580",
       "dates": {
         "valueDate": 1600387200000
@@ -121,7 +122,7 @@
     }, {
       "categoryCode": "#1180aa",
       "dates": {
-        "valueDate": "2020-09-15"
+        "valueDate": 1600128000000
       },
       "transaction": {
         "amountCurrency": {
