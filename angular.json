@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "fe-recruitment"
+    }
+  },
+  "defaultProject": "fe-recruitment",
+  "cli": {
+    "analytics": "1ffa207a-4abc-44f3-a8fd-8b6b8d5d3bd5"
+  }
 }

@@ -1,0 +1,30 @@
+<div>
+  <div class="title">
+    <img src="../../../../assets/icons/a2.png" alt="">
+    Make a Transfer
+  </div>
+  <div class="content">
+    <form [formGroup]="transaction" (ngSubmit)="sendTransaction()">
+      <mat-form-field appearance="standard">
+        <mat-label>FROM ACCOUNT</mat-label>
+        <input [placeholder]="'Account'" matInput formControlName="account">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>TO ACCOUNT</mat-label>
+        <input [placeholder]="'Georgia Power Electronic Company'" matInput formControlName="toAccount">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>AMOUNT</mat-label>
+        <input [type]="'number'" [placeholder]="'$ 0.00'" matInput formControlName="amount">
+        <mat-error *ngIf="transaction.get('amount').invalid">User should not be overdraft beyond -$500, please call support</mat-error>
+      </mat-form-field>
+      <div class="submit">
+        <button class="submitButton" mat-flat-button [disabled]="disableSubmit"
+                [title]="'User should not be overdraft beyond -$500'">SUBMIT
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

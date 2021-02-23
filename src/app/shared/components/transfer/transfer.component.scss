@@ -1,0 +1,24 @@
+@import "../../../../styles/variables";
+:host {
+  display: block;
+  width: 20%;
+  background-color: $white;
+  @include box-shadow;
+
+  .content {
+    mat-form-field {
+      width: 100%;
+    }
+  }
+
+  .submit {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+    button {
+      width: 70%;
+    }
+  }
+}

@@ -1,1 +1,97 @@
+@import "styles/variables";
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300&display=swap');
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$fe-recruitment-primary: mat-palette($mat-grey);
+$fe-recruitment-accent: mat-palette($mat-grey, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$fe-recruitment-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$fe-recruitment-theme: mat-light-theme((
+  color: (
+    primary: $fe-recruitment-primary,
+    accent: $fe-recruitment-accent,
+    warn: $fe-recruitment-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($fe-recruitment-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+.mat-form-field-label{
+  color: $black !important;
+}
+
+.mat-focused {
+  font-weight: bold;
+}
+.mat-form-field-should-float {
+  font-weight: bold;
+}
+
+mat-form-field {
+  input {
+    font-weight: normal !important;
+  }
+}
+
+
+* {
+  font-family: 'Kanit', sans-serif;
+}
+
+$paddingBodyTop: 150px;
+$paddingBodyBot: 30px;
+
+body {
+  background: url("assets/background.jpg") no-repeat 0 100% fixed;
+  padding: $paddingBodyTop $padding-sides $paddingBodyBot
+}
+
+.title {
+  background-color: $darkCian;
+  color: $white;
+  padding: 15px;
+  text-align: center;
+  position: relative;
+  img {
+    background-color: $darkCian;
+    width: 24px;
+    position: absolute;
+    top: calc(50% - 12px);
+    left: 15px;
+  }
+}
+
+html, body { height: calc(100% + (-#{$paddingBodyTop} - #{$paddingBodyBot})); }
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 15px;
+}
+
+.submitButton {
+  background-color: $darkOrange;
+  color: $white;
+}

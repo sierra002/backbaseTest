@@ -1,0 +1,22 @@
+/*Colors*/
+
+$white: #fff;
+$orange: #FF9252;
+$darkOrange: #EE7033;
+$darkCian: #0c8397;
+$black: #000;
+$gray: #7B7772; //for text
+$shadow: #38383875;
+
+
+/*Padding variables*/
+
+$padding-sides: 6%;
+
+/*Mixins*/
+
+@mixin box-shadow {
+  -webkit-box-shadow: 0 0 10px 0 $shadow;
+  -moz-box-shadow: 0 0 10px 0 $shadow;
+  box-shadow: 0 0 10px 0 $shadow;
+}
