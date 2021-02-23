@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import * as transactions from '../../../../mock/transactions.json';
+import {TRANSACTION_INDICATOR} from '../../models/transaction-indicator';
+import {MONTS} from '../../models/months';
+import {images} from '../../models/images';
 
 @Component({
   selector: 'app-transaction-list',
@@ -42,27 +45,5 @@ export class TransactionListComponent implements OnInit {
     });
     console.log(this.dataToShow);
   }
-
-}
-
-enum TRANSACTION_INDICATOR {
-  'CRDT' = '',
-  'DBIT' = '-',
-  undefined = ''
-}
-
-export const MONTS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-enum images {
-  'Backbase'= '../../../../assets/icons/backbase.png',
-  'The Tea Lounge' = '../../../../assets/icons/the-tea-lounge.png',
-  'Texaco'= '../../../../assets/icons/texaco.png',
-  'Amazon Online Store'= '../../../../assets/icons/amazon-online-store.png',
-  '7-Eleven' = '../../../../assets/icons/7-eleven.png',
-  'Jerry Hildreth' =  '../../../../assets/icons/jerry-hildreth.png',
-  'Lawrence Pearson' =  '../../../../assets/icons/lawrence-pearson.png',
-  'H&M Online Store' = '../../../../assets/icons/h&m-online-store.png',
-  'Southern Electric Company' = '../../../../assets/icons/southern-electric-company.png',
-  'Whole Foods'= '../../../../assets/icons/whole-foods.png',
 
 }

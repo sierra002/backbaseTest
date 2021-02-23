@@ -8,6 +8,10 @@ header {
   left: 0;
   right: 0;
   padding: 20px $padding-sides;
+  img {
+    height: 40px;
+    width: auto;
+  }
 }
 
 :host {
