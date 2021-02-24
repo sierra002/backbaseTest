@@ -12,8 +12,8 @@ run `npm i` before starting
 
 there's a work in progress to deploy the app in this [URL](https://sierra002.github.io/backbaseTest/)
 
-images are not working because in order to have it i would have to
-update the build, so it can change the url for resources adding the `/backbase`
+images are not working in the url because in order to have it i would have to
+update the build, so it can change the url for resources adding the `/backbase`, by now images can only be seen in localhost
 
 ## Development server
 
