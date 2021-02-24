@@ -53,10 +53,27 @@ export class TransactionListComponent implements OnInit {
     this.parseToView();
   }
 
-  sortData(a, b): number {
-    let prop = null;
-    let propA = null;
-    let propB = null;
+  parseToView(): void {
+    this.dataToShow = this.transactions.map((t) => {
+      const date = new Date(t.dates.valueDate);
+      return {
+        dateMills: t.dates.valueDate,
+        date: `${MONTS[date.getMonth()]} ${date.getDate()}`,
+        amount: parseInt(TRANSACTION_INDICATOR[t.transaction.creditDebitIndicator] + 1 , 10) * t.transaction.amountCurrency.amount,
+        amountText: TRANSACTION_INDICATOR[t.transaction.creditDebitIndicator] + '$' + t.transaction.amountCurrency.amount,
+        // tslint:disable-next-line:max-line-length
+        img: images[t.merchant.name] ? images[t.merchant.name] : images.default, // probably this should be provided by backend but for this case i have used the images i have,
+        name: t.merchant.name,
+        type: t.transaction.type,
+        color: t.categoryCode
+      };
+    }).sort(this.sortData.bind(this));
+  }
+
+  private sortData(a, b): number {
+    let prop;
+    let propA;
+    let propB;
     const descVal = this.desc ? 1 : -1;
     switch (this.sortType) {
       case 'amount':
@@ -82,25 +99,6 @@ export class TransactionListComponent implements OnInit {
     }
     return 0;
 
-  }
-
-  parseToView(): void {
-    this.dataToShow = this.transactions.map((t) => {
-      const date = new Date(t.dates.valueDate);
-      return {
-        dateMills: t.dates.valueDate,
-        date: `${MONTS[date.getMonth()]} ${date.getDate()}`,
-        amount: parseInt(TRANSACTION_INDICATOR[t.transaction.creditDebitIndicator] + 1 , 10) * t.transaction.amountCurrency.amount,
-        amountText: TRANSACTION_INDICATOR[t.transaction.creditDebitIndicator] + '$' + t.transaction.amountCurrency.amount,
-        // tslint:disable-next-line:max-line-length
-        img: images[t.merchant.name] ? images[t.merchant.name] : images.default, // probably this should be provided by backend but for this case i have used the images i have,
-        name: t.merchant.name,
-        type: t.transaction.type,
-        color: t.categoryCode
-      };
-    }).sort(this.sortData.bind(this));
-    console.log(this.transactions);
-    console.log(this.dataToShow);
   }
 
 }

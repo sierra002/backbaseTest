@@ -1,13 +1,10 @@
-import { TestBed } from '@angular/core/testing';
-
-import { MoneyTranslatorService } from './money-translator.service';
+import {MoneyTranslatorService} from './money-translator.service';
 
 describe('MoneyTranslatorService', () => {
   let service: MoneyTranslatorService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(MoneyTranslatorService);
+    service = new MoneyTranslatorService();
   });
 
   it('should be created', () => {
