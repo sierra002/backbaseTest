@@ -13,12 +13,15 @@
       <mat-form-field appearance="standard">
         <mat-label>TO ACCOUNT</mat-label>
         <input [placeholder]="'Georgia Power Electronic Company'" matInput formControlName="toAccount">
+        <mat-error *ngIf="transaction.get('amount').errors">Account name is required</mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="standard">
         <mat-label>AMOUNT</mat-label>
         <input [type]="'number'" [placeholder]="'$ 0.00'" matInput formControlName="amount">
-        <mat-error *ngIf="transaction.get('amount').invalid">User should not be overdraft beyond -$500, please call support</mat-error>
+        <mat-error *ngIf="transaction.get('amount').errors?.maxExceeded">User should not be overdraft beyond -$500, please call support</mat-error>
+        <mat-error *ngIf="transaction.get('amount').errors?.min">Transactions can not be negative</mat-error>
+        <mat-error *ngIf="transaction.get('amount').errors?.required">Amount can not be empty</mat-error>
       </mat-form-field>
       <div class="submit">
         <button class="submitButton" mat-flat-button [disabled]="disableSubmit"

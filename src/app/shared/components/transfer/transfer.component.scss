@@ -4,6 +4,9 @@
   width: 20%;
   background-color: $white;
   @include box-shadow;
+  @media(max-width: $maxWidth){
+    width: 100%;
+  }
 
   .content {
     mat-form-field {
@@ -12,7 +15,7 @@
   }
 
   .submit {
-    margin-top: 15px;
+    margin-top: 25px;
     display: flex;
     flex-direction: row;
     align-items: flex-end;

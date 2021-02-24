@@ -7,7 +7,7 @@
       },
       "transaction": {
         "amountCurrency": {
-          "amount": 5000,
+          "amount": 6000,
           "currencyCode": "EUR"
         },
         "type": "Salaries",

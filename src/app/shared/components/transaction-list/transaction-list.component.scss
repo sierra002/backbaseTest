@@ -4,45 +4,86 @@
   width: 78%;
   background-color: $white;
   @include box-shadow;
+  @media(max-width: $maxWidth) {
+    width: 100%;
+  }
+
   .content {
     .contentHeader {
       width: 100%;
       display: flex;
       flex-direction: row;
       align-items: center;
+
       mat-form-field {
         width: 50%;
       }
+
       .sortOptions {
         width: 50%;
         display: flex;
         flex-direction: row;
         max-height: 35px;
+
         label, span {
-          padding: 5px 25px;
+          padding: 5px 0;
           text-align: center;
         }
-        label{
+
+        label {
           font-weight: bold;
           width: 25%;
         }
+        div {
+          width: 75%;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+        }
+
         span {
           border: 1px solid $clearGray;
-          width: 25%;
+          width: 33%;
         }
+
         .noSideBorder {
           border-left: none;
           border-right: none;
         }
       }
+
+      @media(max-width: $maxWidth) {
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+        mat-form-field {
+          width: 100%;
+        }
+        .sortOptions {
+          flex-wrap: wrap;
+          width: 100%;
+          max-height: fit-content;
+          label {
+            width: 100%
+          }
+          div {
+            width: 100%;
+          }
+          span {
+            font-size: 14px;
+            width: 33%;
+            padding: 5px 0;
+          }
+        }
+      }
     }
+
     .tableRow {
       display: flex;
       flex-direction: row;
       width: 100%;
       position: relative;
 
-      .indicator{
+      .indicator {
         height: calc(100% - 1px);
         border-bottom: 1px solid $grayOpacity02;
         width: 15px;
@@ -54,12 +95,17 @@
       .info {
         display: flex;
         flex-direction: row;
-        width: 100%;
+        width: calc(100% - 17px);
         border: 1px solid $clearGray;
         margin-left: 15px;
+
         img {
           width: 35px;
+          @media(max-width: $maxWidth) {
+            width: 30px;
+          }
         }
+
         .transactionData {
           width: 70%;
           display: flex;
@@ -67,12 +113,21 @@
           justify-content: flex-start;
           align-items: center;
           align-content: center;
+
           div {
             padding: 0 10px;
+            max-width: calc(100% - 30px - 20px);
             display: flex;
             flex-direction: column;
+            label {
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              max-height: 21px;
+            }
           }
         }
+
         .date {
           width: 10%;
           display: flex;
@@ -81,6 +136,7 @@
           align-items: center;
           align-content: center;
         }
+
         .money {
           width: 20%;
           display: flex;

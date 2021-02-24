@@ -12,6 +12,12 @@ header {
     height: 40px;
     width: auto;
   }
+  @media(max-width: $maxWidth){
+    padding: 10px $padding-sides;
+    img {
+      height: 20px;
+    }
+  }
 }
 
 :host {
@@ -21,5 +27,11 @@ header {
     justify-content: space-between;
     align-items: flex-start;
     align-content: flex-start;
+    @media(max-width: $maxWidth){
+      flex-direction: column;
+      > * {
+        margin-bottom: 15px;
+      }
+    }
   }
 }

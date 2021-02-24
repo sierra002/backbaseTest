@@ -9,5 +9,5 @@ export enum images {
   'H&M Online Store' = '../../../assets/icons/h&m-online-store.png',
   'Southern Electric Company' = '../../../assets/icons/southern-electric-company.png',
   'Whole Foods'= '../../../assets/icons/whole-foods.png',
-
+  'default' = '../../../assets/icons/a2.png',
 }

@@ -11,9 +11,11 @@
       </mat-form-field>
       <div class="sortOptions">
         <label>Sort by</label>
-        <span>DATE</span>
-        <span class="noSideBorder">BENEFICIARY</span>
-        <span>AMOUNT</span>
+        <div>
+          <span>DATE</span>
+          <span class="noSideBorder">BENEFICIARY</span>
+          <span>AMOUNT</span>
+        </div>
       </div>
     </div>
     <div class="tableRow" *ngFor="let transaction of dataToShow">

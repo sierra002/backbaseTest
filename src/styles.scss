@@ -36,13 +36,14 @@ $fe-recruitment-theme: mat-light-theme((
 
 /* Angular material changes (Global) */
 
-.mat-form-field-label{
+.mat-form-field-label {
   color: $black !important;
 }
 
 .mat-focused {
   font-weight: bold;
 }
+
 .mat-form-field-should-float {
   font-weight: bold;
 }
@@ -52,18 +53,23 @@ mat-form-field {
     font-weight: normal !important;
   }
 }
- /* app */
+
+/* app */
 
 * {
   font-family: 'Kanit', sans-serif;
+  font-size: 16px;
+  @media (max-width: $maxWidth) {
+    font-size: 14px;
+  }
 }
-
-$paddingBodyTop: 150px;
-$paddingBodyBot: 30px;
 
 body {
   background: url("assets/background.jpg") no-repeat 0 100% fixed;
-  padding: $paddingBodyTop $padding-sides $paddingBodyBot
+  padding: $paddingBodyTop $padding-sides $paddingBodyBot;
+  @media (max-width: $maxWidth) {
+    padding: $paddingBodyTopResponsive $padding-sides $paddingBodyBotResponsive;
+  }
 }
 
 .title {
@@ -72,6 +78,11 @@ body {
   padding: 15px;
   text-align: center;
   position: relative;
+  font-size: 18px;
+  @media (max-width: $maxWidth) {
+    font-size: 16px;
+  }
+
   img {
     background-color: $darkCian;
     width: 24px;
@@ -81,7 +92,14 @@ body {
   }
 }
 
-html, body { height: calc(100% + (-#{$paddingBodyTop} - #{$paddingBodyBot})); }
+body {
+  height: calc(100% + (-#{$paddingBodyTop} - #{$paddingBodyBot}));
+  margin: 0;
+
+  @media (max-width: $maxWidth) {
+    height: calc(100% + (-#{$paddingBodyTopResponsive} - #{$paddingBodyBotResponsive}));
+  }
+}
 
 .content {
   display: flex;
