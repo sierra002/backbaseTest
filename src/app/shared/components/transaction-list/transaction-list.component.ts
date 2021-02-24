@@ -47,7 +47,6 @@ export class TransactionListComponent implements OnInit {
   sortBy(type: SortType): void {
     if (type !== this.sortType) {
       this.sortType = type;
-      this.desc = true;
     } else {
       this.desc = !this.desc;
     }
