@@ -1,6 +1,19 @@
 # FeRecruitment
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
+## dependencies
+node
+`node v14.8.0`
+npm
+`npm 6.14.7`
+angular cli
+`npm i -g @angular/cli`
+
+run `npm i` before starting
+
+there's a work in progress to deploy the app in this [URL](https://sierra002.github.io/backbaseTest/)
+
+images are not working because in order to have it i would have to
+update the build, so it can change the url for resources adding the `/backbase`
 
 ## Development server
 
