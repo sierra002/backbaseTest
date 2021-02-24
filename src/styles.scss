@@ -46,6 +46,10 @@ $fe-recruitment-theme: mat-light-theme((
 
 .mat-form-field-should-float {
   font-weight: bold;
+
+  mat-error {
+    font-weight: normal;
+  }
 }
 
 mat-form-field {

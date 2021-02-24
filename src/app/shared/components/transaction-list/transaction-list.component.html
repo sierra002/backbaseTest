@@ -7,14 +7,14 @@
     <div class="contentHeader">
       <mat-form-field appearance="standard">
         <mat-label>Search</mat-label>
-        <input [placeholder]="'Search By Typing...'" matInput [formControl]="search">
+        <input [placeholder]="'Search By Typing...'" matInput [formControl]="search" autocomplete="off">
       </mat-form-field>
       <div class="sortOptions">
         <label>Sort by</label>
         <div>
-          <span>DATE</span>
-          <span class="noSideBorder">BENEFICIARY</span>
-          <span>AMOUNT</span>
+          <span [ngClass]="{'arrow': isDate, 'down': desc, 'up': !desc}" (click)="sortBy('date')">DATE</span>
+          <span class="noSideBorder" [ngClass]="{'arrow': isName, 'down': desc, 'up': !desc}" (click)="sortBy('name')">BENEFICIARY</span>
+          <span [ngClass]="{'arrow': isAmount, 'down': desc, 'up': !desc}" (click)="sortBy('amount')">AMOUNT</span>
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
             <span>{{transaction.type}}</span>
           </div>
         </div>
-        <div class="money">{{transaction.amount}}</div>
+        <div class="money">{{transaction.amountText}}</div>
       </div>
     </div>
   </div>

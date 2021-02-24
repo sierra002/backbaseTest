@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {AbstractControl, FormControl, FormGroup, FormGroupDirective, ValidationErrors, Validators} from '@angular/forms';
 import {MoneyTranslatorService} from '../../services/money-translator/money-translator.service';
 import {TransactionService} from '../../services/transaction/transaction.service';
 import {distinctUntilChanged} from 'rxjs/operators';
@@ -14,6 +14,7 @@ export class TransferComponent implements OnInit {
   transaction: FormGroup;
   money = 582476;
   disableSubmit = false;
+  @ViewChild(FormGroupDirective) formDirective: FormGroupDirective;
 
   constructor(private moneyTranslatorService: MoneyTranslatorService, private transactionService: TransactionService) {
   }
@@ -43,7 +44,6 @@ export class TransferComponent implements OnInit {
     const top = this.moneyTranslatorService.fromMoneyToStored(-500);
     if ((this.money - this.moneyTranslatorService.fromMoneyToStored(this.transaction.get('amount').value)) > top) {
       this.money -= this.moneyTranslatorService.fromMoneyToStored(this.transaction.get('amount').value);
-      this.transaction.get('account').setValue(this.moneyTranslatorService.fromStoredToMoney(this.money, this.account));
       this.transactionService.sendTransaction({
         categoryCode: this.getRandomColor(),
         dates: {
@@ -62,10 +62,8 @@ export class TransferComponent implements OnInit {
           type: 'Transaction'
         }
       });
-      this.transaction.patchValue({
-        toAccount: null,
-        amount: null
-      });
+      this.formDirective.resetForm();
+      this.transaction.get('account').setValue(this.moneyTranslatorService.fromStoredToMoney(this.money, this.account));
     } else {
       this.disableSubmit = true;
       this.transaction.get('amount').updateValueAndValidity();

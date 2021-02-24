@@ -42,6 +42,9 @@
         }
 
         span {
+          position: relative;
+          cursor: pointer;
+          @include arrow;
           border: 1px solid $clearGray;
           width: 33%;
         }
