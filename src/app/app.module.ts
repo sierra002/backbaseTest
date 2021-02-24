@@ -10,12 +10,14 @@ import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { TransactionListComponent } from './shared/components/transaction-list/transaction-list.component';
+import { FilterPipe } from './shared/pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TransferComponent,
-    TransactionListComponent
+    TransactionListComponent,
+    FilterPipe
   ],
   imports: [
     FormsModule,

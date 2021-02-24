@@ -101,6 +101,7 @@
 
         img {
           width: 35px;
+          filter: grayscale(100%);
           @media(max-width: $maxWidth) {
             width: 30px;
           }
@@ -124,6 +125,7 @@
               white-space: nowrap;
               text-overflow: ellipsis;
               max-height: 21px;
+              font-weight: bold;
             }
           }
         }
@@ -140,6 +142,7 @@
         .money {
           width: 20%;
           display: flex;
+          font-weight: bold;
           flex-direction: column;
           justify-content: center;
           align-items: flex-end;

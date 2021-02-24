@@ -4,6 +4,7 @@ import {TRANSACTION_INDICATOR} from '../../models/transaction-indicator';
 import {MONTS} from '../../models/months';
 import {images} from '../../models/images';
 import {TransactionService} from '../../services/transaction/transaction.service';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-transaction-list',
@@ -13,6 +14,7 @@ import {TransactionService} from '../../services/transaction/transaction.service
 export class TransactionListComponent implements OnInit {
   transactions = [];
   dataToShow = [];
+  search = new FormControl();
 
   constructor(private transactionService: TransactionService) {
   }

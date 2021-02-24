@@ -1,13 +1,13 @@
 <div>
   <div class="title">
     <img src="../../../../assets/icons/briefcase.png" alt="">
-    Recent transactions
+    Recent Transactions
   </div>
   <div class="content">
     <div class="contentHeader">
       <mat-form-field appearance="standard">
         <mat-label>Search</mat-label>
-        <input [placeholder]="'Search By Typing...'" matInput>
+        <input [placeholder]="'Search By Typing...'" matInput [formControl]="search">
       </mat-form-field>
       <div class="sortOptions">
         <label>Sort by</label>
@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    <div class="tableRow" *ngFor="let transaction of dataToShow">
+    <div class="tableRow" *ngFor="let transaction of dataToShow | filter:search.value">
       <div class="indicator" [style]="{'background-color': transaction.color}"></div>
       <div class="info">
         <div class="date">{{transaction.date}}</div>
